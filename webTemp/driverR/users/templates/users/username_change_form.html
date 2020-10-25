@@ -1,0 +1,22 @@
+
+<!--users/templates/registration/password_reset_confirm.html-->
+
+
+
+
+{% block content %}
+<h2>Change username</h2>
+
+<form action="/./" method="POST">{% csrf_token %}
+    <input type="text" name="quantity" placeholder="Repeat" size=2>
+    <input type="submit" value="Save!">
+</form>
+
+
+owner = request.user
+owner.username = newusername
+owner.save()
+
+
+<a href="{% url 'dashboard' %}">Back to dashboard</a>
+{% endblock %}
